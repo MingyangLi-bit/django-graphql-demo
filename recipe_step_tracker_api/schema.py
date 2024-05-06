@@ -2,7 +2,7 @@ import strawberry
 import strawberry_django
 from strawberry_django.optimizer import DjangoOptimizerExtension
 from strawberry_django import mutations
-from .types import RecipeStep, RecipeStepInput
+from .types import RecipeStep, RecipeStepInput, RecipeStepDeleteInput
 
 @strawberry.type
 class Query:
@@ -11,6 +11,9 @@ class Query:
 @strawberry.type  
 class Mutation:
     add_recipe_step: RecipeStep = mutations.create(RecipeStepInput)
+    update_recipe_step: RecipeStep = mutations.update(RecipeStepInput)
+    delete_recipe_step: RecipeStep = mutations.delete(RecipeStepDeleteInput)
+    
     
 schema = strawberry.Schema(
     query = Query,

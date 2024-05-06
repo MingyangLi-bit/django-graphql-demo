@@ -15,3 +15,7 @@ class RecipeStepInput:
     step: auto
     completed: auto
     
+@strawberry_django.input(RecipeStepModel) 
+class RecipeStepDeleteInput:
+    id: ID
+    
